@@ -1,0 +1,46 @@
+// src/SimpleLoginForm.test.js
+import { render, screen, fireEvent } from '@testing-library/react';
+import SimpleLoginForm from './SimpleLoginForm';
+
+describe('SimpleLoginForm', () => {
+  test('n’affiche pas d’erreur au chargement initial', () => {
+    render(<SimpleLoginForm />);
+    expect(screen.queryByText(/obligatoire/)).not.toBeInTheDocument();
+  });
+
+  test('affiche une erreur quand on soumet avec champ vide', () => {
+    render(<SimpleLoginForm />);
+    
+    fireEvent.click(screen.getByText('Se connecter'));
+    
+    expect(screen.getByText('Le nom d’utilisateur est obligatoire')).toBeInTheDocument();
+  });
+
+  test('supprime l’erreur quand on commence à remplir le champ', () => {
+    render(<SimpleLoginForm />);
+    
+    fireEvent.click(screen.getByText('Se connecter'));
+    expect(screen.getByText('Le nom d’utilisateur est obligatoire')).toBeInTheDocument();
+
+    fireEvent.change(screen.getByLabelText(/Nom d'utilisateur/), {
+      target: { value: 'nass' }
+    });
+
+    expect(screen.queryByText(/obligatoire/)).not.toBeInTheDocument();
+  });
+
+  test('affiche une alerte quand le formulaire est valide', () => {
+    const alertSpy = jest.spyOn(window, 'alert').mockImplementation(() => {});
+    
+    render(<SimpleLoginForm />);
+    
+    fireEvent.change(screen.getByLabelText(/Nom d'utilisateur/), {
+      target: { value: 'nassima' }
+    });
+    
+    fireEvent.click(screen.getByText('Se connecter'));
+    
+    expect(alertSpy).toHaveBeenCalledWith('Connexion simulée pour nassima');
+    alertSpy.mockRestore();
+  });
+});
