@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# TP 7 — Comprendre JSX, la composition avancée et les tests React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📚 Cours
+Développement Front-End moderne avec React
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Contexte
+#### Ce TP s'inscrit dans le cadre du cours Développement Front-End moderne avec React.  
+#### Il permet de comprendre JSX, créer des composants réutilisables avec HOC et Render Props, et écrire des tests unitaires et d’intégration avec Jest et Testing Library.  
+#### Le but est de pratiquer la composition de composants et de garantir la qualité du code via des tests automatisés.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Objectifs
+#### - Comprendre ce qu’est JSX et comment il est transformé en JavaScript pur
+#### - Créer des composants réutilisables avec Higher-Order Components (HOC) et Render Props
+#### - Écrire des tests unitaires et d’intégration pour vérifier le fonctionnement des composants
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Technologies utilisées
+#### - React 18
+#### - JavaScript ES6+
+#### - Jest
+#### - React Testing Library
+#### - Node.js & npm
+#### - Create React App
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📁 Structure du projet
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="1364" height="866" alt="image" src="https://github.com/user-attachments/assets/f8f93bf4-c90c-4ab6-b5d6-4e17b5ce0eb0" />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation et lancement
+#### - Cloner le projet :
+git clone https://github.com/nassima-brina/TP-7-Comprendre-JSX-la-composition-avanc-e-et-les-tests-React/tree/main
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### - Entrer dans le dossier :
+ cd mon-tp-react-jsx-tests
+#### - Installer les dépendances :
+npm install
 
-### `npm run eject`
+#### - Lancer le serveur de développement :
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### - L’application démarre sur : http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Composants et fonctionnalités créés
+### JSXDemo.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Affiche un titre avec JSX et un autre avec React.createElement pour montrer la transformation de JSX.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Button.js & withLogging.js
 
-## Learn More
+#### withLogging : HOC qui affiche les props dans la console avant de rendre le composant.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### ButtonWithLogging : Bouton utilisant le HOC pour le logging.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### DataLoader.js
 
-### Code Splitting
+### Composant utilisant Render Props pour afficher dynamiquement une liste de données.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Greeting.js & Greeting.test.js
 
-### Analyzing the Bundle Size
+#### Composant qui affiche un message de bienvenue.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Test unitaire vérifiant le rendu correct du message.
 
-### Making a Progressive Web App
+### Counter.js & Counter.test.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Composant compteur avec bouton d’incrémentation.
 
-### Advanced Configuration
+#### Test d’intégration vérifiant que le compteur s’incrémente au clic.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Aperçu de l’application
+<img width="1827" height="842" alt="image" src="https://github.com/user-attachments/assets/ed3a4689-36e4-459d-bbac-2d688cff6b0a" />
 
-### Deployment
+<img width="1882" height="862" alt="image" src="https://github.com/user-attachments/assets/8271a2e3-561e-4746-a6cd-4bb17c01a5df" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<img width="1840" height="779" alt="image" src="https://github.com/user-attachments/assets/606888ed-909c-4ad1-b476-106f7cd1b4a5" />
 
-### `npm run build` fails to minify
+<img width="1745" height="737" alt="image" src="https://github.com/user-attachments/assets/b71556d2-3a3d-4f62-bc80-3070234136c2" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="1697" height="483" alt="image" src="https://github.com/user-attachments/assets/dd41e0b0-8402-4e0d-8aa7-bc458288abef" />
+
+
+#### Affichage JSX et JavaScript pur dans JSXDemo
+
+#### Bouton avec logging des props dans la console
+
+#### Liste dynamique avec DataLoader
+
+#### Composants testés automatiquement via Jest et Testing Library
+
+
+## Conclusion
+
+#### Ce TP a permis de :
+
+#### - Comprendre la structure interne de JSX
+
+#### - Créer des composants réutilisables avec HOC et Render Props
+
+#### - Écrire des tests unitaires et d’intégration pour garantir la qualité du code
